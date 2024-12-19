@@ -4,7 +4,7 @@ import cors from "cors";
 import UserRoute from "./routes/UserRoute.js";
 
 const app = express();
-mongoose.connect("mongodb://localhost:27017/MERN_CRUD", {
+mongoose.connect("mongodb://127.0.0.1:27017/MERN_CRUD", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -22,4 +22,4 @@ app.use(UserRoute)
 
 
 
-app.listen(5000, ()=> console.log("server is running"))
+app.listen(5080, ()=> console.log("server is running"))
