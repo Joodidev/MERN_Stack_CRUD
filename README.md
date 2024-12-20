@@ -2,6 +2,7 @@
 # MERN Stack CRUD Application
 
 Welcome to the **MERN Stack CRUD** project! This is a beginner-friendly example of building a full-stack application with MongoDB, Express.js, React.js, and Node.js.
+![Image Description](https://s32.picofile.com/file/8481455892/098.png)
 
 ### Features:
 - Build a REST API with Express.js and MongoDB
