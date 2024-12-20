@@ -2,9 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import UserRoute from "./routes/UserRoute.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-mongoose.connect("mongodb://127.0.0.1:27017/MERN_CRUD", {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

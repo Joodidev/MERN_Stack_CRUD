@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -22,6 +23,7 @@ const UserList = () => {
   return (
     <div className="columns">
       <div className="column is-half">
+        <Link to="/add" className="button is-success">افزودن کاربر</Link>
         <table className="table is-striped is-fullwidth mt-5">
           <thead>
             <tr>
@@ -39,7 +41,9 @@ const UserList = () => {
                   <td>{index+1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>{user.gender}</td>
+                  <td>
+                        {user.gender === "Female" ? "زن" : "مرد"}
+                    </td>
                   <td>
                     <button className="button is-info is-small ml-2">ویرایش</button>
                     <button className="button is-danger is-small">حذف</button>
