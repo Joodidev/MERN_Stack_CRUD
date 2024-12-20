@@ -20,10 +20,21 @@ const UserList = () => {
       });
   };
 
+  const deleteUser = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5080/users/${id}`);
+      handleUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="columns">
       <div className="column is-half">
-        <Link to="/add" className="button is-success">افزودن کاربر</Link>
+        <Link to="/add" className="button is-success">
+          افزودن کاربر
+        </Link>
         <table className="table is-striped is-fullwidth mt-5">
           <thead>
             <tr>
@@ -38,18 +49,26 @@ const UserList = () => {
             {users.map((user, index) => {
               return (
                 <tr key={user._id}>
-                  <td>{index+1}</td>
+                  <td>{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
+                  <td>{user.gender === "Female" ? "زن" : "مرد"}</td>
                   <td>
-                        {user.gender === "Female" ? "زن" : "مرد"}
-                    </td>
-                  <td>
-                    <button className="button is-info is-small ml-2">ویرایش</button>
-                    <button className="button is-danger is-small">حذف</button>
+                    <Link
+                      to={`edit/${user._id}`}
+                      className="button is-info is-small ml-2"
+                    >
+                      ویرایش
+                    </Link>
+                    <button
+                      onClick={() => deleteUser(user._id)}
+                      className="button is-danger is-small"
+                    >
+                      حذف
+                    </button>
                   </td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </table>
